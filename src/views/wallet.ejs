@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://bootswatch.com/5/yeti/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/styles/main.css">
+</head>
+<body>
+
+    <div class="min-w-100 bg bg-primary text-center align-items-center justify-content-center p-3">
+        <header class="text-white">
+            <h1>Billetera Digital</h1>
+            <p>Sigue tus gastos e ingresos</p>
+        </header>
+    </div>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-7 mt-2">
+                <div class="wallet-card card text-white bg-info mb-3" style="max-width: 20rem;">
+                    <div class="card-body">
+                        <p class="card-text text-center">
+                            <span>$ <%= data.amount %></span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="wallet-history">
+                    <h2>Historial</h2>
+
+                    <% if (data.transactions) { %>
+                        <% for (let i = data.transactions.length - 1; i >= 0; i--) { %>
+                            <div class="notice">
+                                <div class="line notice-amount">
+                                    <% if (data.transactions[i].type === 'income') { %>
+                                        <span class="text-success">
+                                    <% } else { %>
+                                        <span class="text-danger">
+                                    <% } %>
+                                        <%= data.transactions[i].amount %>
+                                    </span>
+                                </div>
+                                
+                                
+                                <div class="line notice-text">
+                                    <%= data.transactions[i].concept %>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% } %>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <form action="transaction" method="post" id="transactionForm">
+                    <div class="form-group mb-3">
+                        <input type="text" name="concept" class="form-control" placeholder="Introduce un nuevo concepto">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <input type="text" name="amount" class="form-control" placeholder="Introduce una cantidad ($)">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" name="income" value="Agregar ingreso" class="btn btn-primary">
+                        <input type="submit" name="expense" value="Agregar gasto" class="btn btn-danger">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

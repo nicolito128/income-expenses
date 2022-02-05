@@ -1,0 +1,43 @@
+
+form .form-group input {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+form input[type="submit"], form input[type="button"] {
+    border-radius: 10px;
+}
+
+.wallet-card {
+    border: none;
+    border-radius: 10px;
+    min-width: 80%;
+    width: 100%;
+    font-size: 19pt;
+}
+
+.wallet-history .notice {
+    background: #eeeeee;
+    color: #333333;
+    width: 80%;
+    max-width: 100%;
+    padding: 7px;
+    border-radius: 2.5px;
+    margin-bottom: 22px;
+    position: relative;
+    overflow: hidden;
+}
+
+.line {
+    display:inline;
+}
+
+.notice-text {
+    overflow: hidden;
+}
+
+.notice-amount {
+    position: absolute;
+    right: 10px;
+    overflow: hidden;
+}
