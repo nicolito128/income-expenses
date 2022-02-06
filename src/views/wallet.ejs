@@ -36,11 +36,12 @@
                             <div class="notice">
                                 <div class="line notice-amount">
                                     <% if (data.transactions[i].type === 'income') { %>
-                                        <span class="text-success">
+                                        <span class="text-success">+<%= data.transactions[i].amount %>
                                     <% } else { %>
                                         <span class="text-danger">
+                                            <%= data.transactions[i].amount %>
                                     <% } %>
-                                        <%= data.transactions[i].amount %>
+                                        
                                     </span>
                                 </div>
                                 
@@ -48,6 +49,8 @@
                                 <div class="line notice-text">
                                     <%= data.transactions[i].concept %>
                                 </div>
+
+                                <a href="/delete/<%= data.transactions[i].id%>" class="line notice-delete">X</a>
                             </div>
                         <% } %>
                     <% } %>
@@ -58,16 +61,16 @@
             <div class="col-md-5">
                 <form action="transaction" method="post" id="transactionForm">
                     <div class="form-group mb-3">
-                        <input type="text" name="concept" class="form-control" placeholder="Introduce un nuevo concepto">
+                        <input type="text" name="concept" id="formConcept" class="form-control" placeholder="Introduce un nuevo concepto">
                     </div>
 
                     <div class="form-group mb-3">
-                        <input type="text" name="amount" class="form-control" placeholder="Introduce una cantidad ($)">
+                        <input type="text" name="amount" id="formAmount" class="form-control" placeholder="Introduce una cantidad ($)">
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" name="income" value="Agregar ingreso" class="btn btn-primary">
-                        <input type="submit" name="expense" value="Agregar gasto" class="btn btn-danger">
+                        <input type="submit" name="income" value="Nuevo ingreso" class="btn btn-primary">
+                        <input type="submit" name="expense" value="Nuevo gasto" class="btn btn-danger">
                     </div>
                 </form>
             </div>

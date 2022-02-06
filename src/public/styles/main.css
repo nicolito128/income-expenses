@@ -1,3 +1,6 @@
+html,body {
+    font-size: 16px;
+}
 
 form .form-group input {
     border-radius: 10px;
@@ -17,15 +20,18 @@ form input[type="submit"], form input[type="button"] {
 }
 
 .wallet-history .notice {
-    background: #eeeeee;
     color: #333333;
     width: 80%;
     max-width: 100%;
+    border-bottom: 1px solid #e1e1e1;
     padding: 7px;
-    border-radius: 2.5px;
-    margin-bottom: 22px;
     position: relative;
     overflow: hidden;
+}
+
+.wallet-history .notice:nth-child(odd) {
+    background: #eeeeee;
+    border-radius: 2.5px;
 }
 
 .line {
@@ -38,6 +44,20 @@ form input[type="submit"], form input[type="button"] {
 
 .notice-amount {
     position: absolute;
+    right: 30px;
+    overflow: hidden;
+}
+
+.notice-delete {
+    position: absolute;
     right: 10px;
     overflow: hidden;
+    color: #949494;
+    font-family: monospace;
+    text-decoration: none;
+}
+
+.notice-delete:hover {
+    color: #dd4242;
+    cursor: pointer;
 }
