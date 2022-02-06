@@ -33,4 +33,21 @@ controller.save = function(req, res){
     })
 }
 
+controller.delete = function (req, res) {
+    req.getConnection((err, conn) => {
+        if (err) {
+            res.json(err);
+        }
+
+        const id = req.params.id;
+        conn.query('DELETE FROM transactions WHERE id = ?', [id], (err, customer) => {
+            if (err) {
+                res.json(err);
+            }
+            
+            res.redirect('/');
+        })
+    })
+}
+
 module.exports = controller;
