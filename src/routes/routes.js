@@ -6,5 +6,6 @@ const historyController = require('../controllers/history');
 router.get('/', walletController.wallet);
 
 router.post('/transaction', historyController.save);
+router.get('/delete/:id', historyController.delete);
 
 module.exports = router;
